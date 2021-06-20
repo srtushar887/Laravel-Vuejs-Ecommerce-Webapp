@@ -42,10 +42,27 @@ Route::group(['middleware' => ['auth:admin']], function() {
 
         Route::get('/', [\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin.dashboard');
 
-
+        //main category
         Route::get('/get/category', [\App\Http\Controllers\Admin\AdminCategoryController::class,'get_category'])->name('admin.get.category');
         Route::post('/save/category', [\App\Http\Controllers\Admin\AdminCategoryController::class,'save_category'])->name('admin.save.category');
         Route::post('/update/category/{id}', [\App\Http\Controllers\Admin\AdminCategoryController::class,'update_category'])->name('admin.update.category');
         Route::get('/delete/category/{id}', [\App\Http\Controllers\Admin\AdminCategoryController::class,'delete_category'])->name('admin.delete.category');
+
+
+        //sub category
+        Route::get('/get/all/category', [\App\Http\Controllers\Admin\AdminCategoryController::class,'get_all_category'])->name('admin.get.allcategory');
+        Route::get('/get/all/subcategory', [\App\Http\Controllers\Admin\AdminCategoryController::class,'get_all_sub_category'])->name('admin.get.allsubcategory');
+        Route::post('/save/subcategory', [\App\Http\Controllers\Admin\AdminCategoryController::class,'save_sub_category'])->name('admin.save.subcategory');
+        Route::post('/update/subcategory/{id}', [\App\Http\Controllers\Admin\AdminCategoryController::class,'update_sub_category'])->name('admin.update.subcategory');
+        Route::get('/delete/subcategory/{id}', [\App\Http\Controllers\Admin\AdminCategoryController::class,'delete_sub_category'])->name('admin.delete.subcategory');
+
+
+        //product
+        Route::get('/product/all/category', [\App\Http\Controllers\Admin\AdminProductController::class,'get_product_all_category'])->name('admin.product.allcategory');
+        Route::get('/product/all/subcategory', [\App\Http\Controllers\Admin\AdminProductController::class,'get_product_all_sub_category'])->name('admin.product.allsubcategory');
+        Route::post('/save/product', [\App\Http\Controllers\Admin\AdminProductController::class,'save_product'])->name('admin.save.product');
+
+
+
     });
 });

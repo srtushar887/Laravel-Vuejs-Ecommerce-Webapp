@@ -98,39 +98,7 @@
             <!--- Sidemenu -->
             <div id="sidebar-menu">
                 <!-- Left Menu Start -->
-                <ul class="metismenu list-unstyled" id="side-menu">
-                    <li class="menu-title" key="t-menu">Menu</li>
-                    <li>
-                        <router-link to="/admin" class="waves-effect">
-                            <i class="bx bx-calendar"></i>
-                            <span key="t-calendar">Dashboard</span>
-                        </router-link>
-                    </li>
-
-
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="bx bx-store"></i>
-                            <span key="t-ecommerce">Category Management</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><router-link to="/admin/main-category" key="t-products">Main category</router-link></li>
-                        </ul>
-                    </li>
-
-
-                    <li>
-                        <a href="chat.html" class="waves-effect">
-                            <i class="bx bx-chat"></i>
-                            <span key="t-chat">Chat</span>
-                        </a>
-                    </li>
-
-
-
-
-
-                </ul>
+                <admin-menu></admin-menu>
             </div>
             <!-- Sidebar -->
         </div>
