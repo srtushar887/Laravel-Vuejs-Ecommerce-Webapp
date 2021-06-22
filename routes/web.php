@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\FrontendController::class,'index'])->name('front');
 
 Auth::routes();
 
@@ -39,6 +37,9 @@ Route::group(['middleware' => ['auth:admin']], function() {
 
 //        Route::get('/{vue?}', [\App\Http\Controllers\Admin\AdminController::class,'index'])->where('vue', '[\/\w\.-]*');
         Route::any('/{slug}', [\App\Http\Controllers\Admin\AdminController::class,'index'])->name('test');
+//        Route::get('/{any}', function () {
+//            return view('layouts.admin');
+//        })->where('any', '^(?!admin).*');
 
         Route::get('/', [\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin.dashboard');
 
@@ -60,7 +61,11 @@ Route::group(['middleware' => ['auth:admin']], function() {
         //product
         Route::get('/product/all/category', [\App\Http\Controllers\Admin\AdminProductController::class,'get_product_all_category'])->name('admin.product.allcategory');
         Route::get('/product/all/subcategory', [\App\Http\Controllers\Admin\AdminProductController::class,'get_product_all_sub_category'])->name('admin.product.allsubcategory');
+        Route::get('/get/all/products', [\App\Http\Controllers\Admin\AdminProductController::class,'get_all_products'])->name('admin.product.get.all');
         Route::post('/save/product', [\App\Http\Controllers\Admin\AdminProductController::class,'save_product'])->name('admin.save.product');
+        Route::get('/product/details/{id}', [\App\Http\Controllers\Admin\AdminProductController::class,'product_details'])->name('admin.product.details');
+        Route::post('/update/product/{id}', [\App\Http\Controllers\Admin\AdminProductController::class,'product_update'])->name('admin.product.details');
+        Route::get('/product/delete/{id}', [\App\Http\Controllers\Admin\AdminProductController::class,'product_delete'])->name('admin.product.delete');
 
 
 

@@ -9,6 +9,7 @@ import mainCategory from "../components/admin/category/mainCategory";
 import subCategory from "../components/admin/category/subCategory";
 import product from "../components/admin/product/product";
 import productCreate from "../components/admin/product/productCreate";
+import productEdit from "../components/admin/product/productEdit";
 
 const routes = new VueRouter({
     mode:'history',
@@ -38,6 +39,11 @@ const routes = new VueRouter({
             path:'/admin/product-create',
             component:productCreate,
             name:'adminproductcreate'
+        },
+        {
+            path:'/admin/product-update/:id',
+            component:productEdit,
+            name:'adminproductupdate'
         },
     ]
 });
